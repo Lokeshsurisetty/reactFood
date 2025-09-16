@@ -1,0 +1,218 @@
+/* ==========================
+   GLOBAL STYLES
+   ========================== */
+.body {
+  /* Modern gradient background */
+  background: radial-gradient(circle at center,
+    #ffffff 0%,
+    #dbeafe 30%,
+    #c7d2fe 65%,
+    #fbcfe8 100%
+  ) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937; /* Neutral dark text */
+}
+
+/* ==========================
+   HERO SECTION
+   ========================== */
+.hero-section {
+  background: linear-gradient(135deg,
+    #4f46e5 0%,   /* Indigo */
+    #9333ea 50%,  /* Purple */
+    #ec4899 100%  /* Pink */
+  );
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero highlighted word */
+.hero-section span {
+  color: #facc15; /* Yellow accent */
+}
+
+/* Hero button */
+.hero-section button {
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.hero-section button:hover {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  transform: scale(1.05);
+}
+
+/* ==========================
+   IMAGE SECTION
+   ========================== */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.image-container .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Subtle overlay */
+}
+
+.image-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.image-text span {
+  color: #facc15; /* Yellow accent */
+}
+
+/* ==========================
+   CONTACT SECTION
+   ========================== */
+.contact-section {
+  display: flex;
+  gap: 40px;
+  padding: 60px;
+  background: linear-gradient(to bottom right,
+    #e0f2fe 0%,
+    #ede9fe 50%,
+    #fce7f3 100%
+  );
+  min-height: 100vh;
+}
+
+/* ==========================
+   CONTACT FORM
+   ========================== */
+.contact-form {
+  flex: 2;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.contact-form h2 {
+  margin-bottom: 15px;
+  color: #4f46e5;
+}
+
+.contact-form p {
+  margin-bottom: 25px;
+  color: #6b7280;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 6px rgba(99,102,241,0.4);
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Form button */
+.contact-form button {
+  margin-top: 20px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  transform: scale(1.05);
+}
+
+/* ==========================
+   INFO CARDS
+   ========================== */
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-card {
+  background: linear-gradient(135deg, #1e293b, #334155, #475569);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  text-align: center;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.info-card i {
+  font-size: 28px;
+  color: #facc15;
+  margin-bottom: 12px;
+}

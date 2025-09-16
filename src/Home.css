@@ -77,13 +77,17 @@
 
 /* Primary filled button */
 .btn-primary {
-  background: transparent;
-  color: #000;
+  background: transparent !important;
+  color: #ffae42 !important;
+  border: 2px solid #ffae42 !important;
+  border-radius: 30px !important;
+  margin-top: 1px;
+  padding-top: 15px !important;
 }
 
 .btn-primary:hover {
-  background: #ff8800;
-  color: #fff;
+  background: #ffae42 !important;
+  color: #000 !important;
 }
 
 /* Secondary outline button */

@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 // ================= Products Slice =================
+// Only static product data, no need for localStorage persistence
 const productSlice = createSlice({
   name: "products",
   initialState: {
@@ -65,10 +66,19 @@ const productSlice = createSlice({
   reducers: {}
 });
 
+// ================= Initial States from localStorage =================
+const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
+const initialOrders = JSON.parse(localStorage.getItem("orders")) || [];
+const initialAuth = JSON.parse(localStorage.getItem("auth")) || {
+  users: [],
+  currentUser: null,
+  isAuthenticated: false
+};
+
 // ================= Cart Slice =================
 const cartSlice = createSlice({
   name: "cart",
-  initialState: [],
+  initialState: initialCart,
   reducers: {
     addToCart: (state, action) => {
       const item = state.find(i => i.name === action.payload.name);
@@ -95,38 +105,41 @@ const cartSlice = createSlice({
 // ================= Orders Slice =================
 const orderSlice = createSlice({
   name: "orders",
-  initialState: [],
+  initialState: initialOrders,
   reducers: {
     addOrder: (state, action) => {
-      state.push(action.payload)
-    } 
+      state.push(action.payload);
+    }
   }
 });
 
-// ================= Authentication =================
-let authSlice = createSlice({
+// ================= Authentication Slice =================
+const authSlice = createSlice({
   name: "authentication",
-  initialState: { users:[], currentUser: null, isAuthenticated: false},
-  reducers:{
+  initialState: initialAuth,
+  reducers: {
     registerUser: (state, action) => {
       state.users.push(action.payload);
     },
     loginUser: (state, action) => {
-      const {username, password} = action.payload;
-      const user = state.users.find((user) => user.username === username && user.password === password);
-
-      if(user){
+      const { username, password } = action.payload;
+      const user = state.users.find(
+        (user) => user.username === username && user.password === password
+      );
+      if (user) {
         state.currentUser = user;
         state.isAuthenticated = true;
-      }
-      else{
+      } else {
         state.currentUser = null;
         state.isAuthenticated = false;
       }
-
+    },
+    logoutUser: (state) => {
+      state.currentUser = null;
+      state.isAuthenticated = false;
     }
   }
-})
+});
 
 // ================= Export Actions =================
 export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions;
@@ -142,3 +155,13 @@ export const store = configureStore({
     authentication: authSlice.reducer,
   }
 });
+
+// ================= Persist Redux State to localStorage =================
+store.subscribe(() => {
+  const state = store.getState();
+  localStorage.setItem("cart", JSON.stringify(state.cart));
+  localStorage.setItem("orders", JSON.stringify(state.orders));
+  localStorage.setItem("auth", JSON.stringify(state.authentication));
+});
+
+export default store;
