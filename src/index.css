@@ -1,0 +1,14 @@
+html,body,#root {
+  height:100%;
+  margin:0;
+  padding:0;
+  background: #f4f6fb;
+}
+
+ul.item {
+  margin: 20px 0;
+  padding: 0;
+}
+
+/* simple center helper */
+.center { text-align:center; padding:20px; }

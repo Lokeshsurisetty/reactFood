@@ -1,0 +1,288 @@
+.about-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Reusable Card ===== */
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  background: url("/images/hero-banner.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.2s ease;
+}
+.hero-content h2 {
+  font-size: 44px;
+  margin-bottom: 12px;
+}
+.hero-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.btn-primary {
+  background: #ff6969;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background: #ff4040;
+}
+
+/* ===== Intro ===== */
+.intro {
+  display: flex;
+  gap: 40px;
+  padding: 60px 20px;
+  align-items: center;
+  margin: 50px auto;
+  max-width: 1100px;
+}
+.intro-text {
+  flex: 1;
+  animation: fadeInUp 1.2s ease;
+}
+.intro-text h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ff6969;
+}
+.intro-text p {
+  margin-bottom: 15px;
+}
+.intro-image {
+  flex: 1;
+  animation: zoomIn 1.2s ease;
+}
+.intro-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Videos ===== */
+.videos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+}
+.video-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 1.3s ease;
+}
+.video-card video {
+  width: 350px;
+  display: block;
+}
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 105, 105, 0.85);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.play-btn:hover {
+  background: #ff4040;
+}
+
+/* ===== Strengths ===== */
+.strengths {
+  background: #ff6969;
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+.strengths h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  animation: fadeIn 1.2s ease;
+}
+.strength-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.strength {
+  flex: 1;
+  max-width: 300px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1.3s ease;
+}
+.strength:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+.strength h4 {
+  color: #ff6969;
+  margin-bottom: 10px;
+}
+
+/* ===== Contact Info ===== */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  background: #f9f9f9;
+  flex-wrap: wrap;
+}
+.contact-card {
+  flex: 1;
+  max-width: 250px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 1.2s ease;
+}
+.contact-card h4 {
+  margin-bottom: 10px;
+  color: #ff6969;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #111;
+  color: #ddd;
+  padding: 60px 20px;
+  animation: fadeIn 1.5s ease;
+}
+.footer-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.footer-top h2 {
+  color: #ff6969;
+}
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.footer-links h4 {
+  margin-bottom: 12px;
+  color: #fff;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.footer-links li:hover {
+  color: #ff6969;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+  .videos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .strength-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-links {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,185 @@
+/* Grid for Veg Items */
+.veg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  list-style: none;
+  padding: 0 12px;
+  justify-items: stretch; /* ensures cards fill equally */
+  align-items: stretch;   /* ensures equal height in row */
+}
+
+/* Product Card */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.12s;
+  height: 100%;       /* makes all cards same height */
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.03); /* slight lift + scale */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* bigger shadow for floating effect */
+}
+
+/* Product Image */
+.product-image {
+  width: 100%;       /* responsive width */
+  max-width: 200px;  /* limit */
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 10px;
+}
+
+/* Product Texts */
+.product-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+}
+
+.product-card strong {
+  font-size: 16px;
+  color: #e53935; /* red price highlight */
+  font-weight: bold;
+}
+
+.product-card p {
+  flex-grow: 1;
+  font-size: 14px;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Add to Cart Button */
+.add-btn {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: maroon;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Button hover glow + slight bounce */
+.add-btn:hover {
+  background-color: green !important;
+  transform: scale(1.07);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.5); /* green glow */
+}
+
+/* Ripple effect */
+.add-btn::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.add-btn:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+
+/* Button pressed effect */
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+/* Plus Icon Bounce */
+.plus-icon {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+}
+
+.add-btn:hover .plus-icon {
+  transform: translateY(-4px) scale(1.2);
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  padding: 8px 14px;
+  background-color: #f10505;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+.pagination-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background-color: #0011ff;
+}
+
+/* Plus Icon Continuous Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.2);
+  }
+}
+
+.add-btn:hover .plus-icon {
+  animation: bounce 0.6s infinite;
+}
+
+
+/* Media Queries */
+@media (max-width: 1200px) { 
+  .veg-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); } 
+}
+@media (max-width: 900px)  { 
+  .veg-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } 
+}
+@media (max-width: 600px)  { 
+  .veg-grid { grid-template-columns: 1fr; } 
+}
