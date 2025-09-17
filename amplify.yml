@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Install & use Node.js 20
+        - nvm install 20
+        - nvm use 20
+        # Clean install dependencies
+        - npm ci
+    build:
+      commands:
+        # Build your React + Vite app
+        - npm run build
+  artifacts:
+    baseDirectory: dist   # Change if your build output is in another folder
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .npm/**/*
