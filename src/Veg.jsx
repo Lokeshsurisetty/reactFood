@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "./store";
-import "./Veg.css";
+import "./veg.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -28,8 +28,10 @@ function Veg() {
 
   // Pagination handlers
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
-  const handleNext = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
-  const handlePrevious = () => currentPage > 1 && setCurrentPage(currentPage - 1);
+  const handleNext = () =>
+    currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const handlePrevious = () =>
+    currentPage > 1 && setCurrentPage(currentPage - 1);
 
   // Render items for current page
   const vegListItems = currentItems.map((product) => (
@@ -38,7 +40,13 @@ function Veg() {
       <h3>{product.name}</h3>
       <strong>₹{product.price}</strong>
       <p>{product.description}</p>
-      <button className="add-btn" onClick={() =>{ handleAddToCart(product); toast.success(`product ${product.name} Added successfully`)}}>
+      <button
+        className="add-btn"
+        onClick={() => {
+          handleAddToCart(product);
+          toast.success(`product ${product.name} Added successfully`);
+        }}
+      >
         <span className="plus-icon">➕</span> Add to Cart
       </button>
     </li>
@@ -46,7 +54,7 @@ function Veg() {
 
   return (
     <>
-    <ToastContainer position = "top-right" autoClose = {2000} />
+      <ToastContainer position="top-right" autoClose={2000} />
       <h1
         style={{
           color: "#ff6969",
@@ -75,7 +83,9 @@ function Veg() {
           <button
             key={i + 1}
             onClick={() => handlePageChange(i + 1)}
-            className={`pagination-btn ${currentPage === i + 1 ? "active" : ""}`}
+            className={`pagination-btn ${
+              currentPage === i + 1 ? "active" : ""
+            }`}
           >
             {i + 1}
           </button>
